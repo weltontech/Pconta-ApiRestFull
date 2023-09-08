@@ -34,7 +34,8 @@ public class MedicoController {
 	
 	
 	@GetMapping
-	public Page<DadosListagemMedico> listar(Pageable paginacao){
+	public Page<DadosListagemMedico> listar(@PageableDefault(size=10, sort= {"nome"})  Pageable paginacao){
 		return repository.findAll(paginacao).map(DadosListagemMedico::new);
 	}
 }
+/** @Pageable --> é uma anotação para Pageable, nele voce conseguira configurar a paginação**/
