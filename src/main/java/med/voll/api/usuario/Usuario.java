@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -38,6 +39,34 @@ public class Usuario {
 		this.nome_Pai = dados.nome_pai();
 		this.senha = dados.senha();
 		this.cpf = dados.cpf();
+		
+	}
+
+
+	public void atualizarInformacoes(@Valid DadosAtualizacaoUsuario dados) {
+		
+		if(dados.nome() != null) {
+			this.nome = dados.nome();
+		}
+		if(dados.email() != null) {
+			this.email = dados.email();
+		}
+		if(dados.nome_Mae() != null) {
+			this.nome_Mae = dados.nome_Mae();
+		}
+		if(dados.nome_Pai() != null) {
+			this.nome_Pai = dados.nome_Pai();
+		}
+		if(dados.senha() != null) {
+			this.senha = dados.senha();
+		}
+		if(dados.cpf() != null) {
+			this.cpf = dados.cpf();
+		}
+		
+		
+		
+
 		
 	}
 	

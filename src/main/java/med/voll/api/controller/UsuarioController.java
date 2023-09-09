@@ -43,7 +43,10 @@ public class UsuarioController {
 	@PutMapping
 	@Transactional
 	public void attualizar(@RequestBody @Valid DadosAtualizacaoUsuario dados) {
+		//criado var do tipo Usuario, esta var recebe o usuario do Id passado
+		Usuario usuario = repository.getReferenceById(dados.id());
 		
+		usuario.atualizarInformacoes(dados);
 	}
 
 }

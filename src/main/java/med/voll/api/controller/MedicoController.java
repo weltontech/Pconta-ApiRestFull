@@ -43,6 +43,7 @@ public class MedicoController {
 	@PutMapping
 	@Transactional
 	public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
+		//crio uma variavel de medico e recebo os dados de usuario referente ao ID passado
 		Medico medico  =  repository.getReferenceById(dados.id());
 		medico.atualizarInformacoes(dados);
 		//Obs: a transação é feita automaticamente pelo transactional. 
